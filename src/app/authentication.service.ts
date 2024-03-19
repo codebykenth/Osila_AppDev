@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthenticationService {
-  authenticate = false; // Boolean variable
+  authenticate = false; // Boolean variable, if authenticated or not
 
-  constructor() { }
+  constructor() {}
 
   canActivate() {
     return this.authenticate;

@@ -9,5 +9,8 @@
     <ion-button href="new-page">Go by link</ion-button>
     <ion-button (click)="goByEvent()">Go by event</ion-button>
     <ion-button (click)="goWithAuthorization()">Authenticate</ion-button>
+    <p>{{data}}</p>
+
+    <div *ngIf = "isLoading">{{loadingText}}</div>
   </div>
 </ion-content>

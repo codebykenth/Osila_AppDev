@@ -5,6 +5,7 @@ import { AuthenticationService } from './authentication.service';
 import { AnotherPagePage } from './another-page/another-page';
 import { HomePage } from './home/home.page';
 import { SharedComponent } from './shared/shared.component';
+import { ActivityPagePage } from './activity-page/activity-page.page';
 
 // Add all path and components here in routes to find what component will be shown when directed to specified path
 const routes: Routes = [
@@ -14,13 +15,13 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'activity-page',
     pathMatch: 'full',
   },
   {
     path: 'new-page',
     component: NewPage,
-    canActivate: [AuthenticationService], // Service that is needed to include to use authentication in page
+    canActivate: [AuthenticationService],
   },
   {
     path: 'shared',
@@ -29,7 +30,11 @@ const routes: Routes = [
   {
     path: 'another-page',
     component: AnotherPagePage,
-    canActivate: [AuthenticationService], // Service that is needed to include to use authentication in page
+    canActivate: [AuthenticationService],
+  },
+  {
+    path: 'activity-page',
+    component: ActivityPagePage,
   },
 ];
 

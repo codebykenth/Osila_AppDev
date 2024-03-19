@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Activity Page </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <!-- Buttons -->
+    <ion-button (click)="goWithAuthorization()">Authenticate</ion-button>
+    <ion-button (click)="showArray()">Show array</ion-button>
+    <ion-button (click)="addToArray()">Add to array</ion-button>
+    <ion-button (click)="unAuthenticate()">Unauthenticate</ion-button>
+
+    <div *ngIf="isLoading">{{loadingText}}</div>
+    <!--Show the loading text (string) from activity-page.page.ts if it is set to true-->
+    <div *ngIf="showNum">{{numArr}}</div>
+    <!--Show the numArr (array) from activity-page.page.ts if it is set to true-->
+  </div>
+</ion-content>

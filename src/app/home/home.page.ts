@@ -1,19 +1,60 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage {
-  ngOnInit() {}
+  ngOnInit() {
+    // this.fetchData();
+  }
+
+  data: string = '';
+  isLoading = true;
+  loadingText = 'The page is loading...';
 
   constructor(
     // Needed parameter for routing to new page and authentication
     private router: Router,
-    private authenthicate: AuthenticationService
+    private authenthicate: AuthenticationService,
+    private dataService: DataService
   ) {}
+  // ) {
+  //   dataService.fetchData1().then(success => {
+  //     console.log(success);
+
+  //   }).catch(error=>{
+  //     console.log(error);
+
+  //   }).finally(() => {
+  //     console.log('Promise settled');
+  //     this.isLoading = false;
+  //   })
+
+  //   Promise.all([dataService.fetchData()]).then(([data])=> {
+  //     console.log(data);
+  //   })
+
+  //   let x = ['a', 'b', 'c'];
+  //   let z = ['e', 'f'];
+  //   let y = [...x, 'd', ...z];
+  //   console.log(x);
+
+  // }
+
+  // async fetchData() {
+  //   try {
+
+  //     this.data = await this.dataService.fetchData();
+  //     console.log(this.data);
+
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
   // Funtion for the Go by event button
   goByEvent() {
