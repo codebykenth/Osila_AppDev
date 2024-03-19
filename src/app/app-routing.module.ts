@@ -1,22 +1,36 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { MyCustomPageWithId } from './my-custom/my-custom-page-with-id/my-custom-page-with-id';
-import { MyCustomPage } from './my-custom/my-custom.page';
+import { NewPage } from './new-page/new-page.page';
+import { AuthenticationService } from './authentication.service';
+import { AnotherPagePage } from './another-page/another-page';
+import { HomePage } from './home/home.page';
+import { SharedComponent } from './shared/shared.component';
 
+// Add all path and components here in routes to find what component will be shown when directed to specified path
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () =>
-      import('./home/home.module').then((m) => m.HomePageModule),
+    component: HomePage,
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
   },
-  { path: 'my-custom', component: MyCustomPage }, // Path for my-custom.page.html -- The my-custom.page.html is inside the MyCustomPage (templateUrl)
-
-  { path: 'my-custom/my-custom-page/:id', component: MyCustomPageWithId }, // Path for my-custom-page-with-id.html -- The my-custom-page-with-id.html is inside the MyCustomPageWithId (templateUrl)
+  {
+    path: 'new-page',
+    component: NewPage,
+    canActivate: [AuthenticationService], // Service that is needed to include to use authentication in page
+  },
+  {
+    path: 'shared',
+    component: SharedComponent,
+  },
+  {
+    path: 'another-page',
+    component: AnotherPagePage,
+    canActivate: [AuthenticationService], // Service that is needed to include to use authentication in page
+  },
 ];
 
 @NgModule({

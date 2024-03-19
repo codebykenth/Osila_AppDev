@@ -10,18 +10,27 @@
 
 #container strong {
   font-size: 20px;
+  font-weight: bold;
   line-height: 26px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+#container h1 {
+  font-size: 36px;
+}
 
-  color: #8c8c8c;
+#container p {
+  font-size: 24px;
+  line-height: 2;
 
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+}
+
+#container span {
+  display: block;
+  margin-top: 1rem;
+  color: #bbbbbb;
 }
