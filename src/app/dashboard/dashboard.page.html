@@ -1,0 +1,60 @@
+<ion-menu side="end" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>DeXrypt</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-item>
+        <ion-label class="nav-links">Home</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="nav-links">Markets</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="nav-links">Derivatives</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="nav-links">Trade</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="nav-links">Asset</ion-label>
+      </ion-item>
+    </ion-list>
+    <button (click)="logout()" type="button" color="primary">Logout</button>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Welcome, {{user}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content [fullscreen]="true">
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button (click)="toggleModal()">
+        <ion-icon name="chatbubbles-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <!-- Tabs Component -->
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="home">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="calculator">
+          <ion-icon name="apps"></ion-icon>
+          <ion-label>Calculator</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-content>
+</div>
