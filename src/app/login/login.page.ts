@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { AlertController, ToastController } from '@ionic/angular';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginPage implements OnInit {
   usernameArr = ['admin', 'kenth', 'user1'];
   passwordArr = ['admin123', 'kenth123', 'user1'];
 
-  constructor(private router: Router, private isLogin: LoginService, private toastController: ToastController, private alertController: AlertController) { }
+  constructor(private router: Router, private isLogin: LoginService, private toastController: ToastController, private alertController: AlertController, private data: DataService) { }
 
   ngOnInit() {
   }
@@ -25,15 +26,18 @@ export class LoginPage implements OnInit {
     for (let i = 0; i < this.usernameArr.length; i++) {
       if ((this.usernameIn === this.usernameArr[i]) && (this.passwordIn === this.passwordArr[i])) {
         this.isLogin.login = true;
+        localStorage.setItem('user', this.usernameIn); // To be access in dashboard page
       }
     }
-    if (this.isLogin.login) {
+
+    // Async
+    this.data.load().then(() => {
       this.showAlert();
       this.router.navigate(['dashboard/home']); // Navigate to dashboard/home
-      localStorage.setItem('user', this.usernameIn); // To be access in dashboard page
-    } else {
-      this.presentToast();
     }
+    ).catch(() => {
+      this.presentToast();
+    })
   }
 
   // Show if login is success
