@@ -5,7 +5,8 @@ import { LoginService } from './login.service';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+    canActivate: [LoginService] // Auth Guard
   },
   {
     path: '',
@@ -15,7 +16,8 @@ const routes: Routes = [
 
   {
     path: 'calculator',
-    loadChildren: () => import('./calculator/calculator.module').then(m => m.CalculatorPageModule)
+    loadChildren: () => import('./calculator/calculator.module').then(m => m.CalculatorPageModule),
+    canActivate: [LoginService] // Auth Guard
   },
   {
     path: 'login',
