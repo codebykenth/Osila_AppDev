@@ -4,6 +4,8 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
+  <ion-searchbar color="light" show-clear-button="focus" placeholder="Search a coin"></ion-searchbar>
+
   <ion-text color="warning">
     <h1>LIST OF CRYPTOCURRENCIES</h1>
   </ion-text>
@@ -14,7 +16,6 @@
           <ion-card-header>
             <ion-card-title>{{ currency.name }}</ion-card-title>
           </ion-card-header>
-
           <ion-img src="{{currency.image}}"></ion-img>
           <ion-card-content>
             <ion-text>Current Price: <span>{{
@@ -28,11 +29,14 @@
           <div class="btn-container">
             <ion-button color="success" class="btn">Buy</ion-button>
             <ion-button color="danger" class="btn">Sell</ion-button>
+            <ion-button color="dark" href="https://coinmarketcap.com/" target="_blank"><ion-icon
+                name="stats-chart-outline"></ion-icon></ion-button>
           </div>
         </ion-card>
       </ion-col>
     </ion-row>
-  </ion-grid> <!-- Retrieve all data -->
+  </ion-grid>
+  <!-- Retrieve all data -->
   <!-- <div *ngFor="let university of universities;">
       {{university.name}}
     </div> -->

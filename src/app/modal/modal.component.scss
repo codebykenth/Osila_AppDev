@@ -3,5 +3,33 @@ body {
 }
 
 .container {
-    padding: 40px;
+    padding: 20px;
+}
+
+h2 {
+    width: 100%;
+    font-size: 44px;
+    font-weight: 600;
+    text-align: center;
+    color: rgb(255, 193, 78);
+}
+
+ion-input,
+ion-textarea {
+    background-color: #efefef;
+    border-radius: 10px;
+    margin: 10px 0;
+    color: black;
+}
+
+ion-textarea {
+    height: 150px;
+}
+
+button {
+    background-color: #3880ff;
+    font-size: 18px;
+    padding: 15px 0px;
+    border-radius: 10px;
+    width: 100%;
 }

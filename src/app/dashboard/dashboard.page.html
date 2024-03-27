@@ -6,23 +6,45 @@
   </ion-header>
   <ion-content class="ion-padding">
     <ion-list>
-      <ion-item>
-        <ion-label class="nav-links">Home</ion-label>
+      <ion-item class="nav-links">
+        <ion-label>Home</ion-label>
+        <ion-icon name="home-outline"></ion-icon>
       </ion-item>
-      <ion-item>
-        <ion-label class="nav-links">Markets</ion-label>
+      <ion-item class="nav-links">
+        <ion-label>Markets</ion-label>
+        <ion-icon name="wallet-outline"></ion-icon></ion-item>
+      <ion-item class="nav-links">
+        <ion-label>Derivatives</ion-label>
+        <ion-icon name="analytics-outline"></ion-icon> </ion-item>
+      <ion-item class="nav-links">
+        <ion-label>Trade</ion-label>
+        <ion-icon name="analytics-outline"></ion-icon> </ion-item>
+      <ion-item class="nav-links">
+        <ion-label>Asset</ion-label>
+        <ion-icon name="wallet-outline"></ion-icon></ion-item>
+    </ion-list>
+
+    <ion-list class="ion-margin-top">
+      <ion-item class="nav-links">
+        <ion-label>Notification</ion-label>
+        <ion-toggle></ion-toggle>
       </ion-item>
-      <ion-item>
-        <ion-label class="nav-links">Derivatives</ion-label>
+      <ion-item class="nav-links">
+        <ion-select label="Language" placeholder="English">
+          <ion-select-option value="eng">English</ion-select-option>
+          <ion-select-option value="fil">Filipino</ion-select-option>
+          <ion-select-option value="es">Español</ion-select-option>
+        </ion-select>
       </ion-item>
-      <ion-item>
-        <ion-label class="nav-links">Trade</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label class="nav-links">Asset</ion-label>
+      <ion-item class="nav-links">
+        <ion-select label="Currency" placeholder="PHP">
+          <ion-select-option value="php">PHP</ion-select-option>
+          <ion-select-option value="usd">USD</ion-select-option>
+          <ion-select-option value="aed">AED</ion-select-option>
+        </ion-select>
       </ion-item>
     </ion-list>
-    <button (click)="logout()" type="button" color="primary">Logout</button>
+
   </ion-content>
 </ion-menu>
 
@@ -30,9 +52,22 @@
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="moon-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="notifications-outline"></ion-icon>
+
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <ion-title>Welcome, {{user}}</ion-title>
+
+      <ion-button slot="end" color="danger" (click)="logout()">Logout</ion-button>
     </ion-toolbar>
   </ion-header>
 

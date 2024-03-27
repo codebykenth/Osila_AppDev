@@ -1,18 +1,25 @@
-<ion-list class="container">
-  <ion-item class="ion-padding-bottom">
-    <h1>Have a question?</h1>
-  </ion-item>
-  <ion-item>
-    <ion-input type="text" label="Name" labelPlacement="stacked" placeholder="Enter your name" required></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input type="email" label="Email" labelPlacement="stacked" placeholder="Enter your email" required></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input type="text" label="Name" labelPlacement="stacked" placeholder="Enter your name" required></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-textarea label="Message" placeholder="Enter your message"></ion-textarea>
-  </ion-item>
-  <ion-button class="ion-padding-top" (click)="closeModal()">Send Message</ion-button>
-</ion-list>
+<ion-content>
+
+  <div class="container">
+    <h2 class="ion-text-center">Have a question?</h2>
+    <ion-item>
+      <ion-input class="" type="text" label="Name" labelPlacement="floating" placeholder="Enter your name"
+        required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input class="" type="email" label="Email" labelPlacement="floating" placeholder="Enter your email"
+        required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input class="" type="text" label="Subject" labelPlacement="floating" placeholder="Enter your name"
+        required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea class="" label="Message" labelPlacement="floating" placeholder="Enter your message"></ion-textarea>
+    </ion-item>
+
+
+    <button type="button" class=" ion-margin-top" (click)="closeModal()">Send Message</button>
+  </div>
+
+</ion-content>

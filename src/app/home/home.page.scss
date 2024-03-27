@@ -47,7 +47,7 @@ ion-img {
 }
 
 ion-card-title {
-  font-size: 54px;
+  font-size: 50px;
   font-weight: 700;
 }
 
@@ -56,14 +56,15 @@ ion-card-content {
   font-weight: 400;
 }
 
-// .btn {
-//   padding: 15px 30px;
+ion-col {
+  height: 100%;
+  width: 100%;
+}
+
+// .value-up {
+//   color: green;
 // }
 
-.value-up {
-  color: green;
-}
-
-.value-down {
-  color: red;
-}
+// .value-down {
+//   color: red;
+// }

@@ -11,9 +11,11 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-input type="text" label="Username" labelPlacement="stacked" placeholder="Username" required
-    [(ngModel)]="usernameIn"></ion-input>
-  <ion-input type="password" label="Password" labelPlacement="stacked" placeholder="Password" required
-    [(ngModel)]="passwordIn"></ion-input>
-  <ion-button (click)="login()">Login</ion-button>
+  <div class="container">
+    <ion-input type="text" label="Username" labelPlacement="stacked" placeholder="Username" required
+      [(ngModel)]="usernameIn"></ion-input>
+    <ion-input type="password" label="Password" labelPlacement="stacked" placeholder="Password" required
+      [(ngModel)]="passwordIn"></ion-input>
+    <ion-button (click)="login()">Login</ion-button>
+  </div>
 </ion-content>
