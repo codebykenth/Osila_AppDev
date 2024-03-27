@@ -1,25 +1,38 @@
 <ion-content>
-
   <div class="container">
-    <h2 class="ion-text-center">Have a question?</h2>
-    <ion-item>
-      <ion-input class="" type="text" label="Name" labelPlacement="floating" placeholder="Enter your name"
-        required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input class="" type="email" label="Email" labelPlacement="floating" placeholder="Enter your email"
-        required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input class="" type="text" label="Subject" labelPlacement="floating" placeholder="Enter your name"
-        required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-textarea class="" label="Message" labelPlacement="floating" placeholder="Enter your message"></ion-textarea>
-    </ion-item>
+    <ion-header>
+      <ion-toolbar>
+        <ion-label>
+          <ion-text color="tertiary">
+            <h2 class="ion-text-center">Have a question?</h2>
+          </ion-text>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">
+            <ion-icon name="close-outline" color="danger"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
 
-
-    <button type="button" class=" ion-margin-top" (click)="closeModal()">Send Message</button>
+    <ion-item lines="none">
+      <ion-input class="" type="text" label="Name" labelPlacement="stacked" placeholder="Enter your name"
+        required></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input class="" type="email" label="Email" labelPlacement="stacked" placeholder="Enter your email"
+        required></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-input class="" type="text" label="Subject" labelPlacement="stacked" placeholder="Enter your name"
+        required></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-textarea class="" label="Message" labelPlacement="stacked" placeholder="Enter your message"></ion-textarea>
+    </ion-item>
+    <div class="btn-container">
+      <ion-button color="success" (click)="sendMessage()">Send Message</ion-button>
+    </div>
   </div>
 
 </ion-content>

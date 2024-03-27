@@ -1,3 +1,4 @@
+<!-- Menu Component -->
 <ion-menu side="end" contentId="main-content">
   <ion-header>
     <ion-toolbar>
@@ -5,7 +6,15 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
+    <!-- List Component -->
     <ion-list>
+      <ion-item class="nav-links">
+        <ion-label><ion-text color="warning">{{user}}</ion-text></ion-label>
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="ion-margin-top">
       <ion-item class="nav-links">
         <ion-label>Home</ion-label>
         <ion-icon name="home-outline"></ion-icon>
@@ -24,12 +33,14 @@
         <ion-icon name="wallet-outline"></ion-icon></ion-item>
     </ion-list>
 
+
     <ion-list class="ion-margin-top">
       <ion-item class="nav-links">
         <ion-label>Notification</ion-label>
-        <ion-toggle></ion-toggle>
+        <ion-toggle></ion-toggle><!-- Toggle Component -->
       </ion-item>
       <ion-item class="nav-links">
+        <!-- Select Component -->
         <ion-select label="Language" placeholder="English">
           <ion-select-option value="eng">English</ion-select-option>
           <ion-select-option value="fil">Filipino</ion-select-option>
@@ -37,6 +48,7 @@
         </ion-select>
       </ion-item>
       <ion-item class="nav-links">
+        <!-- Select Component -->
         <ion-select label="Currency" placeholder="PHP">
           <ion-select-option value="php">PHP</ion-select-option>
           <ion-select-option value="usd">USD</ion-select-option>
@@ -44,35 +56,32 @@
         </ion-select>
       </ion-item>
     </ion-list>
-
   </ion-content>
 </ion-menu>
 
+
 <div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="end">
-        <ion-button>
-          <ion-icon name="moon-outline"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-      <ion-buttons slot="end">
-        <ion-button>
-          <ion-icon name="notifications-outline"></ion-icon>
-
-        </ion-button>
-      </ion-buttons>
-      <ion-buttons slot="end">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Welcome, {{user}}</ion-title>
-
-      <ion-button slot="end" color="danger" (click)="logout()">Logout</ion-button>
-    </ion-toolbar>
-  </ion-header>
-
-
   <ion-content [fullscreen]="true">
+    <ion-header>
+      <ion-toolbar class="ion-padding">
+        <ion-label slot="start" class="title">Welcome <ion-text color="warning">{{user}}</ion-text></ion-label>
+        <ion-buttons slot="end">
+          <ion-button>
+            <ion-icon name="moon-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button (click)="openNotif()">
+            <ion-icon name="notifications-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-button slot="end" color="danger" (click)="logout()">Logout</ion-button>
+      </ion-toolbar>
+    </ion-header>
+    <!-- FAB Component -->
     <ion-fab vertical="bottom" horizontal="end">
       <ion-fab-button (click)="toggleModal()">
         <ion-icon name="chatbubbles-outline"></ion-icon>

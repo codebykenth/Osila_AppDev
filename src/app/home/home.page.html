@@ -2,49 +2,56 @@
   <ion-toolbar>
     <ion-title>Home</ion-title>
   </ion-toolbar>
+
 </ion-header>
 <ion-content [fullscreen]="true">
-  <ion-searchbar color="light" show-clear-button="focus" placeholder="Search a coin"></ion-searchbar>
-
-  <ion-text color="warning">
-    <h1>LIST OF CRYPTOCURRENCIES</h1>
+  <ion-text color="dark" class="ion-margin-top">
+    <h1 class="home-margin-top">LIST OF CRYPTOCURRENCIES</h1>
   </ion-text>
+  <!-- Search bar component -->
+  <ion-searchbar color="light" show-clear-button="focus" placeholder="Search a coin" class=""></ion-searchbar>
   <ion-grid>
     <ion-row>
       <ion-col size-xl=" 3" size-lg="6" size-xs="12" *ngFor="let currency of currencies;">
+        <!-- Card component -->
         <ion-card>
-          <ion-card-header>
-            <ion-card-title>{{ currency.name }}</ion-card-title>
-          </ion-card-header>
-          <ion-img src="{{currency.image}}"></ion-img>
-          <ion-card-content>
-            <ion-text>Current Price: <span>{{
-                currency.current_price }}</span></ion-text><br>
-            <ion-text>Total Volume: {{ currency.total_volume }}</ion-text><br>High 24h: {{ currency.high_24h }}<br>
-            <ion-text>Low 24h: {{ currency.low_24h }}</ion-text><br>
-            <ion-text>Price Change 24h: {{ currency.price_change_24h }}</ion-text><br>
-            <ion-text> Price % Change 24h: <span>{{
-                currency.price_change_percentage_24h }}</span></ion-text>
-          </ion-card-content>
-          <div class="btn-container">
-            <ion-button color="success" class="btn">Buy</ion-button>
-            <ion-button color="danger" class="btn">Sell</ion-button>
-            <ion-button color="dark" href="https://coinmarketcap.com/" target="_blank"><ion-icon
-                name="stats-chart-outline"></ion-icon></ion-button>
+          <div class="card-container">
+            <ion-card-header>
+              <ion-card-title color="tertiary">{{ currency.name }}</ion-card-title>
+            </ion-card-header>
+            <ion-img src="{{currency.image}}"></ion-img>
+            <ion-card-content>
+              <ion-label>
+                Current Price: <ion-text color="success">{{
+                  currency.current_price }} USDT</ion-text>
+              </ion-label><br>
+              <ion-label>
+                Total Volume: <ion-text color="warning">{{ currency.total_volume }} USDT</ion-text>
+              </ion-label><br>
+              <ion-label>
+                High 24h: <ion-text color="success">{{
+                  currency.high_24h }}
+                  USDT</ion-text><br>
+              </ion-label>
+              <ion-label>
+                Low 24h: <ion-text color="danger">{{ currency.low_24h }} USDT</ion-text>
+              </ion-label><br>
+              <ion-label>
+                Price Change 24h: <ion-text color="success">{{ currency.price_change_24h }}</ion-text>
+              </ion-label><br>
+              <ion-label> Price % Change 24h: <ion-text color="success">{{
+                  currency.price_change_percentage_24h }}</ion-text>
+              </ion-label>
+            </ion-card-content>
+            <div class="btn-container">
+              <ion-button (click)="buy()" color="success" class="btn">Buy</ion-button>
+              <ion-button (click)="sell()" color="danger" class="btn">Sell</ion-button>
+              <ion-button color="dark" href="https://coinmarketcap.com/" target="_blank"><ion-icon
+                  name="stats-chart-outline"></ion-icon></ion-button>
+            </div>
           </div>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <!-- Retrieve all data -->
-  <!-- <div *ngFor="let university of universities;">
-      {{university.name}}
-    </div> -->
-
-  <!-- Retrieve by limit -->
-  <!-- <div *ngFor="let university of universities; let i = index;">
-      <div *ngIf="i<10">
-        {{university.name}}
-      </div>
-    </div> -->
 </ion-content>

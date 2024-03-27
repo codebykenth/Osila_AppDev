@@ -28,8 +28,9 @@
 
 ion-text h1 {
   text-align: center;
-  font-size: 60px;
+  font-size: 58px;
   font-weight: 800;
+  letter-spacing: 2px;
 }
 
 ion-card {
@@ -56,15 +57,16 @@ ion-card-content {
   font-weight: 400;
 }
 
-ion-col {
+// Stretch the size of card
+ion-card {
   height: 100%;
+}
+
+ion-header {
+  display: block;
   width: 100%;
 }
 
-// .value-up {
-//   color: green;
-// }
-
-// .value-down {
-//   color: red;
-// }
+.home-margin-top {
+  margin-top: 80px;
+}

@@ -4,7 +4,7 @@ import { LoginPage } from '../login/login.page';
 import { LoginService } from '../login.service';
 import { DataService } from '../data.service';
 import { Crypto } from '../crypto.model'; // Always remember to import the model
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { ModalComponent } from '../modal/modal.component';
 
 @Component({
@@ -14,16 +14,40 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class HomePage {
   currencies: Crypto[] = [];
-  // valueUp: boolean = false;
-  // valueDown: boolean = false;
 
-  constructor(private data: DataService) {
+  constructor(private data: DataService, private alertController: AlertController) {
   }
+  // Fetch the data from api
   ngOnInit(): void {
     this.data.getCrypto().subscribe(currency => {
-      this.currencies = currency;
-      console.log(currency);
+      this.currencies = currency; // Put the values of fetch data inside currencies array
     });
+  }
+
+  // Will show if buy button is clicked
+  async buy() {
+    const alert = await this.alertController.create(
+      {
+        header: 'Buy',
+        subHeader: 'Status',
+        message: 'Coin has been added to your wallet!',
+        buttons: ['OK']
+      }
+    );
+    alert.present();
+  }
+
+  // Will show if sell button is clicked
+  async sell() {
+    const alert = await this.alertController.create(
+      {
+        header: 'Sell',
+        subHeader: 'Status',
+        message: 'Coin has been removed to your wallet!',
+        buttons: ['OK']
+      }
+    );
+    alert.present();
   }
 }
 
