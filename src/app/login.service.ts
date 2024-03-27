@@ -6,4 +6,7 @@ import { Injectable } from '@angular/core';
 export class LoginService {
   login = false;
   constructor() { }
+  canActivate() {
+    return this.login;
+  }
 }
