@@ -33,10 +33,13 @@
         <ion-icon name="wallet-outline"></ion-icon></ion-item>
     </ion-list>
 
-
     <ion-list class="ion-margin-top">
       <ion-item class="nav-links">
         <ion-label>Notification</ion-label>
+        <ion-toggle></ion-toggle><!-- Toggle Component -->
+      </ion-item>
+      <ion-item class="nav-links">
+        <ion-label>Dark Mode</ion-label>
         <ion-toggle></ion-toggle><!-- Toggle Component -->
       </ion-item>
       <ion-item class="nav-links">
@@ -56,6 +59,9 @@
         </ion-select>
       </ion-item>
     </ion-list>
+    <div class="logout-container">
+      <ion-button class="logout" color="danger" (click)="logout()">Logout</ion-button>
+    </div>
   </ion-content>
 </ion-menu>
 
@@ -66,11 +72,6 @@
       <ion-toolbar class="ion-padding">
         <ion-label slot="start" class="title">Welcome <ion-text color="warning">{{user}}</ion-text></ion-label>
         <ion-buttons slot="end">
-          <ion-button>
-            <ion-icon name="moon-outline"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-buttons slot="end">
           <ion-button (click)="openNotif()">
             <ion-icon name="notifications-outline"></ion-icon>
           </ion-button>
@@ -78,7 +79,7 @@
         <ion-buttons slot="end">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-button slot="end" color="danger" (click)="logout()">Logout</ion-button>
+        <!-- <ion-button slot="end" color="danger" (click)="logout()">Logout</ion-button> -->
       </ion-toolbar>
     </ion-header>
     <!-- FAB Component -->

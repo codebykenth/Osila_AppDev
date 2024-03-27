@@ -15,19 +15,17 @@ ion-fab {
     }
 }
 
-button {
-    margin: 20px 0;
-    padding: 10px;
-    border-radius: 10px;
-    transition: all .3s ease-in-out;
-
-    &:hover {
-        background-color: #0e59da;
-
-    }
-}
-
 .title {
     font-size: 30px;
     font-weight: 600;
+}
+
+.logout-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.logout {
+    width: 100%;
 }
