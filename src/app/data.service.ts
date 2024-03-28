@@ -18,7 +18,7 @@ export class DataService {
   load() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (this.isLogin.login) {
+        if (localStorage.getItem('login') === 'true') {
           resolve('');
         } else {
           reject();

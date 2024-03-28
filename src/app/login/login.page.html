@@ -6,10 +6,10 @@
   </ion-header>
 
   <div class="container">
-    <ion-input type="text" label="Username" labelPlacement="stacked" placeholder="Username" required
-      [(ngModel)]="usernameIn"></ion-input>
+    <ion-input type="text" label="Username" labelPlacement="stacked" [clearInput]="true" placeholder="Username" required
+      [(ngModel)]="usernameIn" fill="solid"></ion-input>
     <ion-input type="password" label="Password" labelPlacement="stacked" placeholder="Password" required
-      [(ngModel)]="passwordIn"></ion-input>
+      [(ngModel)]="passwordIn" fill="solid"></ion-input>
     <ion-button (click)="login()">Login</ion-button>
   </div>
 </ion-content>

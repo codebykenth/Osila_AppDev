@@ -36,12 +36,10 @@
 
     <ion-list class="ion-margin-top">
       <ion-item class="nav-links">
-        <ion-label>Notification</ion-label>
-        <ion-toggle></ion-toggle><!-- Toggle Component -->
+        <ion-toggle [checked]="true" [enableOnOffLabels]="true">Notification</ion-toggle><!-- Toggle Component -->
       </ion-item>
       <ion-item class="nav-links">
-        <ion-label>Dark Mode</ion-label>
-        <ion-toggle></ion-toggle><!-- Toggle Component -->
+        <ion-toggle [checked]="true" [enableOnOffLabels]="true">Dark Mode</ion-toggle><!-- Toggle Component -->
       </ion-item>
       <ion-item class="nav-links">
         <!-- Select Component -->
@@ -80,12 +78,11 @@
         <ion-buttons slot="end">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <!-- <ion-button slot="end" color="danger" (click)="logout()">Logout</ion-button> -->
       </ion-toolbar>
     </ion-header>
     <!-- FAB Component -->
     <ion-fab vertical="bottom" horizontal="end">
-      <ion-fab-button (click)="toggleModal()">
+      <ion-fab-button (click)="toggleModal()" color="warning">
         <ion-icon name="chatbubbles-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab>

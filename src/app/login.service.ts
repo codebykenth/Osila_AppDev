@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  login = false;
-  constructor() { }
+  constructor(private router: Router) { }
   canActivate() {
-    return this.login;
+    if (localStorage.getItem('login') === 'true') {
+      return true;
+    } else {
+      this.router.navigate(['login']); // Will navigate to login if not authenticated
+      return false;
+    }
   }
 }

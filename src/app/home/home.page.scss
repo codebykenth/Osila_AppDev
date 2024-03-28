@@ -39,8 +39,8 @@ ion-card {
 }
 
 ion-img {
-  width: 25%;
-  height: 25%;
+  width: 50%;
+  height: 50%;
   display: block;
   object-fit: contain;
   object-position: center;
@@ -69,4 +69,12 @@ ion-header {
 
 .home-margin-top {
   margin-top: 80px;
+}
+
+.value-up {
+  color: #2dd36f;
+}
+
+.value-down {
+  color: #eb445a;
 }

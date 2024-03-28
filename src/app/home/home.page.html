@@ -2,8 +2,8 @@
   <ion-toolbar>
     <ion-title>Home</ion-title>
   </ion-toolbar>
-
 </ion-header>
+
 <ion-content [fullscreen]="true">
   <ion-text color="dark" class="ion-margin-top">
     <h1 class="home-margin-top">LIST OF CRYPTOCURRENCIES</h1>
@@ -16,31 +16,38 @@
         <!-- Card component -->
         <ion-card>
           <div class="card-container">
+            <!--  [class.value-up]="currency.price_change_percentage_24h > 0"
+                  [class.value-down]="currency.price_change_percentage_24h < 0"
+                These lines of code are used to check if the price % change is greater than or less than 0, then it will change the color/class dynamically -->
             <ion-card-header>
-              <ion-card-title color="tertiary">{{ currency.name }}</ion-card-title>
+              <ion-card-title color="tertiary"> {{ currency.name }}</ion-card-title>
             </ion-card-header>
             <ion-img src="{{currency.image}}"></ion-img>
             <ion-card-content>
               <ion-label>
-                Current Price: <ion-text color="success">{{
+                Current Price: <ion-text [class.value-up]="currency.price_change_percentage_24h > 0"
+                  [class.value-down]="currency.price_change_percentage_24h < 0">{{
                   currency.current_price }} USDT</ion-text>
               </ion-label><br>
               <ion-label>
                 Total Volume: <ion-text color="warning">{{ currency.total_volume }} USDT</ion-text>
               </ion-label><br>
               <ion-label>
-                High 24h: <ion-text color="success">{{
+                High (24hr): <ion-text color="success">{{
                   currency.high_24h }}
                   USDT</ion-text><br>
               </ion-label>
               <ion-label>
-                Low 24h: <ion-text color="danger">{{ currency.low_24h }} USDT</ion-text>
+                Low (24hr): <ion-text color="danger">{{ currency.low_24h }} USDT</ion-text>
               </ion-label><br>
               <ion-label>
-                Price Change 24h: <ion-text color="success">{{ currency.price_change_24h }}</ion-text>
+                Price Change (24hr): <ion-text [class.value-up]="currency.price_change_percentage_24h > 0"
+                  [class.value-down]="currency.price_change_percentage_24h < 0">{{ currency.price_change_24h
+                  }}</ion-text>
               </ion-label><br>
-              <ion-label> Price % Change 24h: <ion-text color="success">{{
-                  currency.price_change_percentage_24h }}</ion-text>
+              <ion-label> Price % Change 24h: <ion-text [class.value-up]="currency.price_change_percentage_24h > 0"
+                  [class.value-down]="currency.price_change_percentage_24h < 0">{{
+                  currency.price_change_percentage_24h }}%</ion-text>
               </ion-label>
             </ion-card-content>
             <div class="btn-container">

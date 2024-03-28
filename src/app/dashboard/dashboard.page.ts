@@ -30,8 +30,8 @@ export class DashboardPage implements OnInit {
 
   // Will go back to login page if clicked
   logout() {
-    this.isLogin.login = false;
     localStorage.removeItem('user');
+    localStorage.removeItem('login');
     this.router.navigate(['login'])
   }
 
