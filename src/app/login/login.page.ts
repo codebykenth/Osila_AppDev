@@ -25,8 +25,8 @@ export class LoginPage implements OnInit {
   login() {
     for (let i = 0; i < this.usernameArr.length; i++) {
       if ((this.usernameIn === this.usernameArr[i]) && (this.passwordIn === this.passwordArr[i])) {
-        this.isLogin.login = true;
         localStorage.setItem('user', this.usernameIn); // To be access in dashboard page
+        localStorage.setItem('login', 'true');
       }
     }
 
