@@ -15,8 +15,7 @@ import { ModalComponent } from '../modal/modal.component';
 export class HomePage {
   currencies: Crypto[] = [];
 
-  constructor(private data: DataService, private alertController: AlertController, private router: Router, private isLogin: LoginService) {
-  }
+  constructor(private data: DataService, private alertController: AlertController, private router: Router, private isLogin: LoginService) { }
   // Fetch the data from api
   ngOnInit(): void {
     this.data.getCrypto().subscribe(currency => {

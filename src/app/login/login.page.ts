@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  // Check if username and password input is correct aand equal to the elements inside username and password array
+  // Check if username and password input is correct and equal to the elements inside username and password array
   login() {
     for (let i = 0; i < this.usernameArr.length; i++) {
       if ((this.usernameIn === this.usernameArr[i]) && (this.passwordIn === this.passwordArr[i])) {

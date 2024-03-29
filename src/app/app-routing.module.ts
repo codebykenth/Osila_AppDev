@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'dashboard/home', // Default page - This page will be navigated first, then the auth guard (LoginService) will check if user can access this page
     pathMatch: 'full'
   },
 
