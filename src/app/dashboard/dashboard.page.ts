@@ -13,11 +13,13 @@ import { NotificationComponent } from '../notification/notification.component';
 export class DashboardPage implements OnInit {
   user: any;
 
-  constructor(private modalController: ModalController, private router: Router, private isLogin: LoginService) {
-    this.user = localStorage.getItem('user'); // Will get the set user from local storage
-  }
+  constructor(private modalController: ModalController, private router: Router, private isLogin: LoginService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  // Will set the value of user before entering page to whoever username is logged in
+  ionViewWillEnter() {
+    this.user = localStorage.getItem('user'); // Will get the set user from local storage
   }
 
   // Will open if floating button action is clicked
@@ -42,4 +44,11 @@ export class DashboardPage implements OnInit {
     })
     return await modal.present();
   };
+
+  // Prevent the user from going back to login page if they are already logged in
+  ionViewWillLeave() {
+    if (localStorage.getItem('login') === 'true') {
+      this.router.navigate(['dashboard/home']);
+    }
+  }
 }

@@ -5,11 +5,11 @@ import { LoginService } from './login.service';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'dashboard/home', // Default page - This page will be navigated first, then the auth guard (LoginService) will check if user can access this page
     pathMatch: 'full'
   },
   {
