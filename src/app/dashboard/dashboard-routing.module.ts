@@ -17,6 +17,11 @@ const routes: Routes = [
       {
         path: 'calculator',
         component: CalculatorPage
+      },
+      {
+        path: '',
+        redirectTo: '/dashboard/home', // Default path
+        pathMatch: 'full'
       }
     ]
   }

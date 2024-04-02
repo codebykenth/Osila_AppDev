@@ -61,4 +61,12 @@ export class LoginPage implements OnInit {
     });
     toast.present();
   }
+
+  // Prevent the user from going back to login page if user is already logged in
+  // Will navigate to dashboard/home if recently logged in
+  ionViewWillEnter() {
+    if (localStorage.getItem('login') === 'true') {
+      this.router.navigate(['dashboard/home']);
+    }
+  }
 }
