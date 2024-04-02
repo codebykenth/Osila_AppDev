@@ -44,11 +44,4 @@ export class DashboardPage implements OnInit {
     })
     return await modal.present();
   };
-
-  // Prevent the user from going back to login page if they are already logged in
-  ionViewWillLeave() {
-    if (localStorage.getItem('login') === 'true') {
-      this.router.navigate(['dashboard/home']);
-    }
-  }
 }
