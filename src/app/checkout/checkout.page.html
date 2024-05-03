@@ -1,0 +1,62 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size-xs="12">
+        <ion-text class="ion-text-sm-center ion-text-md-left">
+          <h1 class="">Order Information</h1>
+        </ion-text>
+        <!-- Customer Name -->
+        <ion-item>
+          <ion-input type="text" placeholder="" label="🧑 Full Name:" [(ngModel)]="order.cust_name"></ion-input>
+        </ion-item>
+
+        <!-- Customer Contact -->
+        <ion-item>
+          <ion-input type="number" placeholder="" label="☎️ Contact No. (+63):" [(ngModel)]="order.cust_contact"
+            [clearOnEdit]="true"></ion-input>
+        </ion-item>
+
+        <!-- Customer Address -->
+        <ion-item>
+          <ion-input type="text" placeholder="" label="📌 Address:" [(ngModel)]="order.cust_address"></ion-input>
+        </ion-item>
+
+        <!-- Customer Payment -->
+        <ion-item>
+          <ion-select label="🧬 Gender" (ionChange)="selectChanged($event)" placeholder="">
+            <ion-select-option value="Male">Male</ion-select-option>
+            <ion-select-option value="Female">Female</ion-select-option>
+            <ion-select-option value="Prefer not to say">Prefer not to say</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <!-- Customer is valid -->
+        <div class="verified-container">
+          <div class="isVerified">🆗 Is verified:</div>
+
+          <ion-toggle (ionChange)="toggleChanged($event)"></ion-toggle>
+        </div>
+        <ion-item>
+          <ion-label>📅 Date created: {{order.date_created.toDate().toLocaleDateString()}}</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-button (click)="createOrder()" shape="round">
+        <svg xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path
+            d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V173.3c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32H64zm0 96c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128zM224 288a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+        </svg>
+        <span style="margin-left: 10px;">Save</span>
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

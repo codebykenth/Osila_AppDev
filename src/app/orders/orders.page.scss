@@ -1,0 +1,30 @@
+svg {
+    width: 18px;
+}
+
+.no-data {
+    font-size: 14px;
+    color: red;
+    opacity: 0.5;
+}
+
+.order-id {
+    font-size: 18px;
+}
+
+.verified-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 5px;
+}

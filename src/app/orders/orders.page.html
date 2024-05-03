@@ -1,0 +1,131 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>orders</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <h1>Order Summary</h1>
+        <h3 *ngIf="!orderList || orderList.length === 0" class="no-data">❌ No Data Available</h3>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" *ngFor="let order of orderList">
+
+        <div class="header">
+          <h1 class="order-id">🪪 ID: {{order.id}}</h1>
+          <ion-button (click)="edit(order)"><svg xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z" />
+            </svg></ion-button>
+
+
+        </div>
+        <ion-item>
+          <ion-label>🧑 Customer Name: </ion-label>
+          <ion-text>{{order.cust_name}}</ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>☎️ Contact Number(+63): </ion-label>
+          <ion-text>{{order.cust_contact}}</ion-text>
+        </ion-item>
+
+        <!-- <ion-item>
+          <ion-label>Address: </ion-label>
+          <ion-text>{{order.cust_address}}</ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Payment Method: </ion-label>
+          <ion-text>{{order.cust_payment}}</ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Is verified: </ion-label>
+          <ion-text>{{order.isVerified}}</ion-text>
+        </ion-item> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title color="dark">Order Information</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-grid>
+          <ion-row class="ion-align-items-center">
+            <ion-col size-xs="12">
+              <ion-text class="ion-text-sm-center ion-text-md-left">
+                <h1 class="">Order Information</h1>
+              </ion-text>
+              <!-- Customer Name -->
+              <ion-item>
+                <ion-input type="text" placeholder="" label="🧑 Full Name:" [(ngModel)]="order.cust_name"></ion-input>
+              </ion-item>
+
+              <!-- Customer Contact -->
+              <ion-item>
+                <ion-input type="number" placeholder="" label="☎️ Contact No. (+63):"
+                  [(ngModel)]="order.cust_contact"></ion-input>
+              </ion-item>
+
+              <!-- Customer Address -->
+              <ion-item>
+                <ion-input type="text" placeholder="" label="📌 Address:" [(ngModel)]="order.cust_address"></ion-input>
+              </ion-item>
+
+              <!-- Customer Payment -->
+              <ion-item>
+                <ion-select label="🧬 Gender" (ionChange)="selectChanged($event)" placeholder="{{order.cust_gender}}">
+                  <ion-select-option value="Male">Male</ion-select-option>
+                  <ion-select-option value="Female">Female</ion-select-option>
+                  <ion-select-option value="Prefer not to say">Prefer not to say</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <!-- Customer is valid -->
+              <div class="verified-container">
+                <div class="isVerified">🆗 Is verified:</div>
+                <ion-toggle [checked]="order.isVerified" (ionChange)="toggleChanged($event)"></ion-toggle>
+              </div>
+              <ion-item>
+                <ion-label>📅 Date created: {{ order.date_created.toDate().toLocaleString() }}</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-button (click)=" save()" shape="round" color="success">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V173.3c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32H64zm0 96c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128zM224 288a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+              </svg>
+              <span style="margin-left: 10px;">Save</span>
+            </ion-button>
+
+            <ion-button (click)="confirmDelete(order)" shape="round" color="danger">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+
+              </svg>
+              <span style="margin-left: 10px;">Delete</span>
+            </ion-button>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
